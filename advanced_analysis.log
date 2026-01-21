@@ -1,0 +1,141 @@
+/home/user/miniforge3/envs/enact/lib/python3.9/site-packages/xarray_schema/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/user/miniforge3/envs/enact/lib/python3.9/site-packages/numba/core/decorators.py:246: RuntimeWarning: nopython is set for njit and is ignored
+  warnings.warn('nopython is set for njit and is ignored', RuntimeWarning)
+======================================================================
+ADVANCED STRATIFIED ANALYSES - PDAC SPATIAL TRANSCRIPTOMICS
+======================================================================
+
+Patient Structure:
+  YP12 (R): Pre=YP12A, Post=YP12C
+  YP15 (R): Pre=YP15A, Post=YP15C
+  YP03 (NR): Pre=YP03A, Post=YP03C
+  YP04 (NR): Pre=MISSING, Post=YP04C
+
+⚠️  NO P-VALUES - n=2 per group insufficient for inference
+
+======================================================================
+LOADING DATA
+======================================================================
+  Loaded YP03A: 953 spots
+  Loaded YP03C: 863 spots
+  Loaded YP04C: 1914 spots
+  Loaded YP12A: 1426 spots
+  Loaded YP12C: 914 spots
+  Loaded YP15A: 1448 spots
+  Loaded YP15C: 1407 spots
+
+======================================================================
+COMPUTING METRICS
+======================================================================
+  Processing YP03A...
+    Spatial entropy: 3.608
+  Processing YP03C...
+    Spatial entropy: 3.508
+  Processing YP04C...
+    Spatial entropy: 3.424
+  Processing YP12A...
+    Spatial entropy: 3.666
+  Processing YP12C...
+    Spatial entropy: 3.681
+  Processing YP15A...
+    Spatial entropy: 3.580
+  Processing YP15C...
+    Spatial entropy: 3.720
+
+======================================================================
+PATHWAY ANALYSIS (PROGENy)
+======================================================================
+
+  Loading PROGENy model...
+  Processing YP03A...
+    14 pathways computed
+  Processing YP03C...
+    14 pathways computed
+  Processing YP04C...
+    14 pathways computed
+  Processing YP12A...
+    14 pathways computed
+  Processing YP12C...
+    14 pathways computed
+  Processing YP15A...
+    14 pathways computed
+  Processing YP15C...
+    14 pathways computed
+
+======================================================================
+GSEA HALLMARK
+======================================================================
+
+  Running GSEA Hallmark analysis...
+    Loaded 50 Hallmark gene sets
+  Processing YP03A...
+    GSEA failed: net contains repeated edges, please remove them.
+  Processing YP03C...
+    GSEA failed: net contains repeated edges, please remove them.
+  Processing YP04C...
+    GSEA failed: net contains repeated edges, please remove them.
+  Processing YP12A...
+    GSEA failed: net contains repeated edges, please remove them.
+  Processing YP12C...
+    GSEA failed: net contains repeated edges, please remove them.
+  Processing YP15A...
+    GSEA failed: net contains repeated edges, please remove them.
+  Processing YP15C...
+    GSEA failed: net contains repeated edges, please remove them.
+
+======================================================================
+GENERATING FIGURES
+======================================================================
+
+  Generating Figure 6: Spatial Entropy...
+    Saved fig06_spatial_entropy.png
+
+  Generating Figure 7: Topology Analysis...
+    Computing topology for YP03A...
+    Computing topology for YP03C...
+    Computing topology for YP04C...
+    Computing topology for YP12A...
+    Computing topology for YP12C...
+    Computing topology for YP15A...
+    Computing topology for YP15C...
+    Saved fig07_topology_betti.png
+
+  Generating Figure 8: PROGENy Pathway Activity...
+    Saved fig08_progeny_pathways.png
+
+  Skipping Figure 9: No GSEA results
+
+  Generating Figure 10: H&E + Spatial Transcriptome...
+    Saved fig10_he_spatial.png
+
+  Generating Excel Tables...
+    Saved T5_spatial_entropy.xlsx
+    Saved T6_topology_metrics.xlsx
+    Saved T7_progeny_pathways.xlsx
+
+======================================================================
+COMPLETE
+======================================================================
+
+Generated Figures:
+  fig01_study_overview.png
+  fig02_celltype_post.png
+  fig03_celltype_pre.png
+  fig04_paired_change.png
+  fig05_spatial_post.png
+  fig06_spatial_entropy.png
+  fig07_topology_betti.png
+  fig08_progeny_pathways.png
+  fig10_he_spatial.png
+
+Generated Tables:
+  T0_all_metrics.xlsx
+  T0_summary.xlsx
+  T1_celltype_post.xlsx
+  T2_celltype_pre.xlsx
+  T3_paired_changes.xlsx
+  T4_spatial_metrics.xlsx
+  T5_spatial_entropy.xlsx
+  T6_topology_metrics.xlsx
+  T7_progeny_pathways.xlsx
