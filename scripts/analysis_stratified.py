@@ -26,9 +26,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import scanpy as sc
 import squidpy as sq
+from scipy.stats import entropy as scipy_entropy
 from pathlib import Path
 import warnings
 warnings.filterwarnings('ignore')
+
+
+def compute_spatial_entropy(adata, cell_type_col='cell_type'):
+    """Compute spatial entropy based on cell type distribution."""
+    # Find cell type column
+    for col in [cell_type_col, 'cell_type_broad', 'leiden']:
+        if col in adata.obs.columns:
+            ct_counts = adata.obs[col].value_counts(normalize=True)
+            return scipy_entropy(ct_counts.values, base=2)
+    return None
 
 # Paths
 DATA_DIR = Path('/home/user/spatial-hackathon-2026/outputs/adata/polymathic')
@@ -488,9 +499,10 @@ def create_figure5_spatial_post():
             'n_spots': adata.n_obs,
         }
 
-        # Spatial entropy if available
-        if 'spatial_entropy' in adata.obs.columns:
-            row['spatial_entropy'] = adata.obs['spatial_entropy'].mean()
+        # Spatial entropy - compute directly from cell types
+        spatial_ent = compute_spatial_entropy(adata)
+        if spatial_ent is not None:
+            row['spatial_entropy'] = spatial_ent
 
         # Cell type diversity
         if 'cell_type' in adata.obs.columns:
